@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   
-  get 'favorites/create'
-  get 'favorites/destroy'
-  root 'tweets#index'  # 追加
+  # get 'favorites/create'
+  # get 'favorites/destroy'
 
+  root 'tweets#index'
   devise_for :users
-  resources :tweets # 追加
-  resources :users # 追加
 
+
+  resources :tweets do
+    resources :favorites, only: [:create, :destroy]
+  end
+
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
+
