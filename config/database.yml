@@ -1,4 +1,4 @@
-# MySQL. Versions 5.5.8 and up are supported.
+# iMySQL. Versions 5.5.8 and up are supported.
 #
 # Install the MySQL driver
 #   gem install mysql2
@@ -20,6 +20,9 @@ default: &default
 development:
   <<: *default
   database: association_tutorial_development
+  user: admin
+  password: .Db1rgopw8476
+  host: database-1.cdlaw25ale74.ap-northeast-1.rds.amazonaws.com
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -52,5 +55,4 @@ production:
   <<: *default
   database: association_tutorial_production
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+
