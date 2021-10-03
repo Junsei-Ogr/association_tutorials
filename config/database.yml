@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: association_tutorial_production
-  username: association_tutorial
-  password: <%= ENV['ASSOCIATION_TUTORIAL_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
